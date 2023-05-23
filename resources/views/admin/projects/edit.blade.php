@@ -31,6 +31,17 @@
                         <textarea class="form-control" id="description" name="description">{{ old('title', $project->description) }}</textarea>
                     </div>
                     <div class="mb-3">
+                        <label for="type_id" class="form-label">Type</label>
+                        <select class="form-select" name="type_id" id="type_id">
+                            <option value="">Select type</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
+                                    {{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="creation_date" class="form-label">Creation date</label>
                         <input type="date" class="form-control" id="creation_date"
                             name="creation_date">{{ old('title', $project->creation_date) }}</textarea>
